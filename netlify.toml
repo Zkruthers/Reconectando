@@ -1,5 +1,3 @@
-lua
-Copy code
 [build]
   command = "ng build --prod && npm run json-server"
   publish = "dist/reconectando"
