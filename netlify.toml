@@ -7,5 +7,5 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "http://localhost:3000/:splat"
+  to = "http://localhost:5000/:splat"
   status = 200
