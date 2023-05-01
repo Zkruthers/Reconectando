@@ -1,5 +1,5 @@
 [build]
-  command = "ng build --configuration=production && npm run json-server"
+  command = "ng build --configuration=production && npm run json-server && npm install --save-dev npm-run-all"
   publish = "dist/reconectando"
 
 [dev]
