@@ -1,0 +1,16 @@
+.form-usuario {
+  padding: 40px;
+}
+
+.title-usuario-lista {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bolder;
+}
+
+.button-insert {
+  background-color: #7ECECA !important;
+  margin-bottom: 15px;
+  margin-left: 180px;
+  margin-top: 15px;
+  color: white !important;
+}

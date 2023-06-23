@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background: #7ececab5;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.login {
+  width: 360px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #15171d;
+}
+
+h1{
+  font-family: 'Roboto Slab', serif;
+  font-weight: bolder;
+  color: black;
+}
+
+.form-usuario {
+  background-color: rgba(22, 147, 165, 0.2);
+  text-align: center;
+  margin: 0 350px 0 350px;
+  border-radius: 20px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!---->
+    <div *ngIf="edicion; then actualizar else registrar"></div>
+
+    <ng-template #actualizar>
+      <div style="text-align: center;" #actualizar>
+        <h1 class="title-creaedita-usuario">Actualizar País</h1>
+      </div>
+    </ng-template>
+
+    <ng-template #registrar>
+      <div style="text-align: center;" #registrar>
+        <h1 class="title-creaedita-usuario">Registrar País</h1>
+      </div>
+    </ng-template>
+
+    <!---->
+
+    <form [formGroup]="form" (submit)="aceptar()" class="form-usuario">
+
+      <mat-form-field class="example-full-witdh" style="margin-top: 20px;">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="Código" formControlName="id" readonly>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="example-full-witdh">
+        <mat-label>Nombre</mat-label>
+        <input matInput required placeholder="Escribe el nombre del País" formControlName="nombrePais">
+      </mat-form-field>
+
+      <br>
+
+      <div class="buttons-registrar-usuario">
+        <button mat-raised-button class="button-creaedita-usuario" (click)="aceptar()">Aceptar</button>
+
+        <button mat-raised-button color="warn" style="margin-bottom: 20px;" routerLink="/pages/paises">Cancelar</button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>

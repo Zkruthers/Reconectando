@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible">
+  <title>Mácara de recorte con CSS y SVG</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+
+  <div class="login form-usuario">
+
+    <h1 class="login__heading">Iniciar sesión</h1>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Usuario</mat-label>
+      <input matInput placeholder="Username" [(ngModel)]="username">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Password" [(ngModel)]="password">
+    </mat-form-field>
+
+    <br>
+
+    <button mat-raised-button color="warn" (click)="login()">Ingresar</button>
+
+  </div>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+<!--
+
+-->

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!---->
+    <div *ngIf="edicion; then actualizar else registrar"></div>
+
+    <ng-template #actualizar>
+      <div style="text-align: center;" #actualizar>
+        <h1 class="title-creaedita-usuario">Actualizar Persona Desaparecida - Comisaria</h1>
+      </div>
+    </ng-template>
+
+    <ng-template #registrar>
+      <div style="text-align: center;" #registrar>
+        <h1 class="title-creaedita-usuario">Registrar Persona Desaparecida - Comisaria</h1>
+      </div>
+    </ng-template>
+
+    <!---->
+
+    <form [formGroup]="form" (submit)="aceptar()" class="form-usuario">
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="Id" formControlName="id" readonly>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Persona Desaparecida</mat-label>
+        <mat-select formControlName="people" [(value)]="idPeopleSeleccionado" required>
+          <mat-option *ngFor="let p of listaPeople" [value]="p.idPeople">
+            {{p.nombresPeople + " " + p.apellidosPeople}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Comisaría</mat-label>
+        <mat-select formControlName="comisaria" [(value)]="idComisariaSeleccionado" required>
+          <mat-option *ngFor="let c of listaComisaria" [value]="c.idComisaria">
+            {{c.nombreComisaria + " (ID: " + c.idComisaria + ")"}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <div class="buttons-registrar-usuario">
+
+        <button mat-raised-button class="button-creaedita-usuario" (click)="aceptar()">Aceptar</button>
+        <button mat-raised-button color="warn" style="margin-bottom: 20px;"
+          routerLink="/pages/peoplexcomisaria">Cancelar</button>
+
+      </div>
+    </form>
+
+  </div>
+
+</body>
+
+</html>

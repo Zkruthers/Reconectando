@@ -1,0 +1,54 @@
+<mat-toolbar *ngIf="verificar()" style="background-color: #1693A5" class="mat-elevation-z8">
+
+  <span class="logo">RECONECTANDO</span>
+
+  <div class="spacer"></div>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="role=='USER'" routerLink="/pages/inicio">Inicio</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="validarRol()" routerLink="/pages/usuarios">Usuario</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="validarRol()" routerLink="/pages/peoples">Persona Desaparecida</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="validarRol()" routerLink="/pages/publicaciones">Publicacion</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="validarRol()" routerLink="/pages/comentarios">Comentario</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="role=='ADMIN'" routerLink="/pages/categorias">Categoría</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="role=='ADMIN'" routerLink="/pages/roles">Rol</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="role=='ADMIN'" routerLink="/pages/responsables">Responsable</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="validarRol()" routerLink="/pages/comisarias">Comisaría</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="validarRol()" routerLink="/pages/distritos">Distrito</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="validarRol()" routerLink="/pages/ciudades">Ciudad</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="validarRol()" routerLink="/pages/paises">País</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" class="btn-nav-general"
+    *ngIf="role=='USER'" routerLink="/pages/reportes">Reportes</button>
+
+  <button mat-menu-item class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/login"
+    (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>

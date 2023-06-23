@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!---->
+    <div *ngIf="edicion; then actualizar else registrar"></div>
+
+    <ng-template #actualizar>
+      <div style="text-align: center;" #actualizar>
+        <h1 class="title-creaedita-comentario">Actualizar Comentario</h1>
+      </div>
+    </ng-template>
+
+    <ng-template #registrar>
+      <div style="text-align: center;" #registrar>
+        <h1 class="title-creaedita-comentario">Registrar Comentario</h1>
+      </div>
+    </ng-template>
+
+    <!---->
+
+    <form [formGroup]="form" (submit)="aceptar()" class="form-comentario">
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="Código" formControlName="id" readonly>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripción</mat-label>
+        <input matInput required placeholder="Por favor ingrese su comentario" formControlName="descripcionComentario">
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Publicación</mat-label>
+        <input matInput formControlName="fechaPublicacionC" [(ngModel)]="today" [max]="maxFecha" readonly>
+        <mat-datepicker></mat-datepicker>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="user" [(value)]="idUsuarioSeleccionada" required>
+          <mat-option *ngFor="let u of listaUsuario" [value]="u.id">
+            {{u.nombresUsuario + " " + u.apellidosUsuario}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Publicación</mat-label>
+        <mat-select formControlName="publicacion" [(value)]="idPublicacionSeleccionada" required>
+          <mat-option *ngFor="let p of listaPublicacion" [value]="p.idPublicacion">
+            {{p.idPublicacion + " " + p.tituloPublicacion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <div class="buttons-registrar-comentario">
+        <button mat-raised-button class="button-creaedita-comentario" (click)="aceptar()">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/pages/comentarios" style="margin-bottom: 20px;">Cancelar</button>
+        <br>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+
+</html>

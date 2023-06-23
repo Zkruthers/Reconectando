@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="form-usuario">
+
+    <div style="text-align: center;">
+      <h1 class="title-usuario-lista">Países Registrados</h1>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar" />
+      </mat-form-field>
+    </div>
+
+    <div [hidden]="role=='USER'" style="text-align: right;">
+      <button mat-raised-button class="button-insert" routerLink="/pages/paises/nuevo">Registrar</button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- idPais Column -->
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.idPais}} </td>
+      </ng-container>
+
+      <!-- nombrePaisColumn -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombrePais}} </td>
+      </ng-container>
+
+      <!-- Actualizar Column -->
+
+      <ng-container matColumnDef="accion01">
+        <th mat-header-cell [hidden]="role=='USER'" *matHeaderCellDef> Actualizar </th>
+        <td mat-cell [hidden]="role=='USER'" *matCellDef="let element">
+          <button mat-button class="button-update" [routerLink]="['edicion', element.idPais]">
+            <span class="material-icons button-update">autorenew</span>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Eliminar Column -->
+      <ng-container matColumnDef="accion02">
+        <th mat-header-cell [hidden]="role=='USER'" *matHeaderCellDef> Eliminar </th>
+        <td mat-cell [hidden]="role=='USER'" *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="confirm(element.idPais)">
+            <span class="material-icons">delete_forever</span>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" showFirstLastButtons>
+    </mat-paginator>
+
+  </div>
+
+</body>
+</html>

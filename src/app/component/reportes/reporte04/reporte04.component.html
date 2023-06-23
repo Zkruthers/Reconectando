@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="form-usuario">
+
+    <div style="text-align: center;">
+      <h1 class="title-usuario-lista">Cantidad de Comentarios por Publicación</h1>
+    </div>
+
+    <div style="text-align: right; display: inline-block;">
+      <button mat-raised-button class="button-insert" routerLink="/pages/reportes/people-count-distrito">Reporte 01</button>
+    </div>
+
+    <div style="text-align: right; display: inline-block;">
+      <button mat-raised-button class="button-insert" routerLink="/pages/reportes/publicacion-count-categoria">Reporte 02</button>
+    </div>
+
+    <div style="text-align: right; display: inline-block;">
+      <button mat-raised-button class="button-insert" routerLink="/pages/reportes/people-count-comisaria">Reporte 03</button>
+    </div>
+
+    <div style="text-align: right; display: inline-block;">
+      <button mat-raised-button class="button-insert" routerLink="/pages/reportes/comentario-count-publicacion">Reporte 04</button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Publicacion Column -->
+      <ng-container matColumnDef="publicacion">
+        <th mat-header-cell *matHeaderCellDef> Publicación </th>
+        <td mat-cell *matCellDef="let element"> {{element.publicacion}} </td>
+      </ng-container>
+
+      <!-- Comentarios Column -->
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef> Cantidad de Comentarios </th>
+        <td mat-cell *matCellDef="let element"> {{element.comentarioCount}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+
+</body>
+
+</html>
